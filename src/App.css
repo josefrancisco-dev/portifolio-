@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #8c25f4;
+  --color-background-light: #f7f5f8;
+  --color-background-dark: #0a0a0a;
+  --color-surface-dark: #121212;
+  --font-display: "Inter", sans-serif;
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-primary {
+    background: rgba(140, 37, 244, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(140, 37, 244, 0.2);
+  }
+  .text-glow {
+    text-shadow: 0 0 15px rgba(140, 37, 244, 0.4);
+  }
+  .hero-gradient {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(140, 37, 244, 0.15) 0%,
+      transparent 50%
+    );
+  }
+  .skill-card {
+    @apply transition-all duration-300;
+  }
+  .skill-card:hover {
+    box-shadow: 0 0 20px rgba(140, 37, 244, 0.2);
+    border-color: rgba(140, 37, 244, 0.5);
+  }
+}
